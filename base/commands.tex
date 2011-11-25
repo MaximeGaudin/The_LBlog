@@ -1,0 +1,21 @@
+\newcommand{\postTitle}[1]{}
+\newcommand{\postDescription}[1]{}
+\newcommand{\postNumber}[1]{}
+
+\newlength{\parindentCopy} 
+\setlength{\parindentCopy}{\parindent} 
+\newenvironment{unindent} 
+{\setlength{\parindent}{0pt}} 
+{\setlength{\parindent}{\parindentCopy}}
+
+\newcommand{\postPreview}[3]{%
+\begin{unindent}%
+\begin{minipage}{.4\textwidth}%
+  \href{#3}{\textcolor[gray]{0.6}{\Large #1}}
+\end{minipage}%
+\begin{minipage}{.6\textwidth}%
+  \textsl{#2}
+\end{minipage}%
+\end{unindent}%
+\vspace*{1cm}%
+}
