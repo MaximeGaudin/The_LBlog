@@ -7,7 +7,7 @@
 
 'use strict';
 
-PDFJS.getPdf('index.pdf', function getPdfHelloWorld(data) {
+PDFJS.getPdf('./index.pdf', function getPdfHelloWorld(data) {
   //
   // Instantiate PDFDoc with PDF data
   //
