@@ -7,7 +7,7 @@ for i in `find posts -type d -maxdepth 1 -mindepth 1`; do
   description=`grep -e '\\postDescription{.*}' $i/main.tex | sed 's/\\\\postDescription{\(.*\)}/\1/'`
 
   if [[ $title != "" ]]; then
-    echo "\\postPreview{$title}{$description}{$file.pdf}" >> main.tex
+    echo "\\postPreview{$title}{$description}{./$file.pdf}" >> main.tex
   fi
 done
 mkdir posts/index
@@ -29,6 +29,8 @@ for i in `find posts -type d -maxdepth 1 -mindepth 1`; do
 done
 
 rm -r posts/index
+
+cp base/index.html bin
 
 echo ""
 echo "Terminé."
