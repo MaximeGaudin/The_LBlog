@@ -24,9 +24,13 @@ for i in `find posts -type d -maxdepth 1 -mindepth 1`; do
   file=$(basename $i)
   echo "++++ $file..."
 
+  for j in `find tmp/ -name *.tex`; do
+    echo $j
+    gsed -i "s|@_POST_@|main|g" $j 
+    gsed -i "s|@_ROOT_@|${ROOT}|g" $j 
+  done
+
   cd tmp
-  gsed -i 's/@_POST_@/main/g' body.tex
-  gsed -i "s/@_ROOT_@/${ROOT}/g" body.tex
   pdflatex body.tex
   cd ..
 
